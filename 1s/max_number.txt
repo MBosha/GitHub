@@ -1,0 +1,5 @@
+1. ввод тех чисел a, b, c
+2. присвоить myMax = a;
+3. если b > myMax то  myMax = b
+4. если с > myMax то  myMax = с
+5. вывести myMax
