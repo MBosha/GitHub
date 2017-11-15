@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<script>
+var i = 0;
+while (i != 1)
+{
+var a = prompt ('Осмелишься сыграть в русскую рулетку? Да/Нет');
+if (a == 'Да') 
+{
+	alert ('Замечательно');
+	var i = 1;
+} 
+if (a == 'Нет') 
+{
+	alert ('Пока');
+	var i = 1;
+}
+if ((a!='Да') && (a!='Нет'))
+{
+	alert ('Повтори')
+}
+}
+for (var i = 0; i < 9; i++)
+{
+var Zaryad = Math.random () * 6;
+var Zaryad1 = Math.ceil (Zaryad);
+if (a == 'Да') 
+{
+	alert (i + ' ' + Zaryad1);
+}
+}
+alert ('Конец');
+</script>
