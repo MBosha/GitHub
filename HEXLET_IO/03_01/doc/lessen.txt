@@ -1,0 +1,137 @@
+Немного модифицированный пример из лекции
+Пример сделан Сергей Алексеенко, как нам кажется помогает уловить суть происходящего в коде на уроке:
+
+
+public class Car {
+    int speed;
+    public void showSpeed() {    //выводит значение из хипа по ссылке this
+        System.out.println("speed в хипе заданый методом setSpeed- " + this.speed);
+    }
+    public void setSpeed(int newSpeed) { //принимаем значение 12
+        this.speed = newSpeed; //записываем по ссылке в хип
+        showSpeed();//показываем
+        newSpeed = 8;//записали новое значение в стеке
+        System.out.println("переменная newSpeed в фрейме стека- " + newSpeed);
+        System.out.println("присваиваем переменной speed новое значение = 3");
+        speed = 3; //В стеке нет такой переменной, потому она будет записана в хип!
+        System.out.println("Java сама добавила this и записала новое значение speed в хип- " + this.speed);
+        setSetSpeed(newSpeed);//рак мозга :) в который передаем значение newSpeed = 8
+
+    }
+    public void setSetSpeed(int speed) { //теперь и в стеке есть своя переменная speed !!!
+        System.out.println("Значение speed в хипе- " + this.speed);
+        speed = speed;//в стеке само себя переприсваивает
+        System.out.println("переменная speed в фрейме стека- " + speed);
+        System.out.println("присваиваем значение speed из фрейма стека значению speed в хипе!");
+        this.speed = speed;//присваиваем значение speed из фрейма значению speed в хипе!
+        System.out.println("Значение speed заданое уже методом setSetSpeed- " + this.speed); //показываем speed из хипа.
+
+    }
+    public static void main(String... args) {
+        Car ta4ka = new Car();
+
+        System.out.println("speed в хипе при создании объекта - NULL" );// не выводит NULL :(
+
+        ta4ka.setSpeed(12); //Вызываем конкретную функцию из новосозданого объекта
+                            //Значение хранится в фрейме в переменной newSpeed
+    }
+}
+
+Основы использования и создания методов в классах
+У каждого класса есть поля (свойства) и действия (методы) --> в лекциях ранее.
+
+car
+maxSpeed (field) --> double
+fuelType (field)
+passenngersCount (field)
+startEngine (method) --> void
+stopEngine (method) --> void
+increaseSpeed(newSpeed --> double) (method) --> void
+Как внутри класса можно создать методы?
+public static void main (String... a) throws Exeption { ... }
+
+public ?
+область видимости /
+модификатор доступа /
+модификатор видимости
+public
+protected
+default (without keyword)
+private
+больше информации в дальнейших уроках!!!!
+означает, что метод будет доступен любым окружающим классам
+static ?
+уровень метода
+class level
+instance level (without keyword)
+пока все методы будут instance уровня, без ключевого слова
+больше информации в дальнейших уроках!!!!
+void ?
+возвращаемый тип
+any type
+void --> метод после работы ничего не возвращает
+больше информации в дальнейших уроках!!!!
+main ?
+имя метода
+называть по правилам полей
+метод должен быть глаголом
+(String... a) ?
+значения, которые нужны методу для выполнения работы
+throws Exeption ?
+исключительные ситуации
+больше информации в дальнейших уроках!!!!
+... ?
+тело метода
+Пример
+public void startEngine ( )  {
+System.out.println("Engine started!");
+}
+Как вызвать метод?
+должна быть ссылка на инстанс --> Car car = new Car();
+использовать точку --> car.startEngine();
+указать имя метода
+передать аргументы, если они ожидаются --> car.setSpeed(12);
+Как ведет себя виртуальная машина? --> пошаговый процесс выполнения программы.
+
+this ? --> разбор для понимания процесса!!!
+public class Car {
+
+    int speed;
+
+    public void showSpeed() {
+        System.out.println(this.speed);
+    }
+
+    public void setSpeed(int newSpeed) {
+        this.speed = newSpeed;
+    }
+
+    public class Main {
+
+        public static void main(String... args) {
+            Car car = new Car();
+            car.speed = 1;
+            car.showSpeed();
+            car.setSpeed(12);
+            car.showSpeed();
+        }
+
+    }
+"В омут с головой" в практику!!!
+Важно осознать как методы вызываются, как они работают и что такое стек фреймов!
+
+Полезные ссылки:
+
+Для создания UML - Use cases etc.
+Методы в Java - Oracle
+Методы в Java- Tutorialspoint
+Использование ключевого слова this
+Группы для общения:
+
+Google+
+Slack - группа #java
+VK
+FB
+Twitter
+YouTube
+Web site
