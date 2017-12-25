@@ -60,7 +60,7 @@ public class Logic {
         //Удаляем года/лет
         for (int s = 1; s < result.size(); s++) {
             String strDel = result.get(s);
-            for (int i = strDel.length(); i > strDel.length() - 10; i--) {
+            for (int i = strDel.length(); i > strDel.length() - 5; i--) {
                 if (strDel.substring(i - 1, i).equals(numbers[0])
                         || strDel.substring(i - 1, i).equals(numbers[1])
                         || strDel.substring(i - 1, i).equals(numbers[2])
