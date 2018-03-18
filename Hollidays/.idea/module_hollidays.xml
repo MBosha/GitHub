@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_hollidays" default="compile.module.hollidays">
+  <dirname property="module.hollidays.basedir" file="${ant.file.module_hollidays}"/>
+  
+  <property name="module.jdk.home.hollidays" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.hollidays" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.hollidays" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.hollidays" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="hollidays.output.dir" value="undefined"/>
+  <property name="hollidays.testoutput.dir" value="undefined"/>
+  
+  <path id="hollidays.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="hollidays.module.production.classpath"/>
+  
+  <path id="hollidays.runtime.production.module.classpath"/>
+  
+  <path id="hollidays.module.classpath"/>
+  
+  <path id="hollidays.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.hollidays">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.hollidays">
+    <patternset refid="excluded.from.module.hollidays"/>
+  </patternset>
+  
+  
+  <target name="compile.module.hollidays" depends="compile.module.hollidays.production,compile.module.hollidays.tests" description="Compile module Hollidays"/>
+  
+  <target name="compile.module.hollidays.production" depends="register.custom.compilers" description="Compile module Hollidays; production classes"/>
+  
+  <target name="compile.module.hollidays.tests" depends="register.custom.compilers,compile.module.hollidays.production" description="compile module Hollidays; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.hollidays" description="cleanup module">
+    <delete dir="${hollidays.output.dir}"/>
+    <delete dir="${hollidays.testoutput.dir}"/>
+  </target>
+</project>
