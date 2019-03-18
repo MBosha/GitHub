@@ -4,6 +4,7 @@ package Classes;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class FactorialStream {
  *
  * @param n >= 0
  *
- * @return factorial value
+ * @return factorial english
  */
     
 public static long factorial(long n) {
@@ -184,56 +185,51 @@ public static BigInteger calcDoubleFactorial(int n) {
                     if (str1.length() > 1 || j == str.length() - 1) {
                         String nstr = str1.toString();
                         promez.add(nstr);
-                        System.out.println(str1);
                         str1.setLength(0);
                     };                    
                 }
                 if (str1.length() > 1 && j == str.length() - 1) {
                     String nstr = str1.toString();
                     promez.add(nstr);
-                    System.out.println(str1);
                     str1.setLength(0);
                 }               
             }
             System.out.println();
-            System.out.println(1 + " promez");
+            System.out.println(i + " promez");
             promez.forEach((x) -> System.out.println(x));
             
             for (int k = 1; k < promez.size(); k++){
-                slovar.add(new Slovar (promez.get(0), promez.get(k)));               
+                slovar.add(new Slovar (promez.get(k), promez.get(0)));               
             }            
-            promez.clear();
-            System.out.println();
-            System.out.println("map");
-            System.out.println(slovar.get(i).getKey());
-            slovar.get(i).getValue().forEach(x -> System.out.println(x));
+            promez.clear();            
+        }  
+        System.out.println();
+        System.out.println("Словарь");
+        for (int l = 0; l < slovar.size(); l++){            
+            System.out.print(slovar.get(l).getSpain() + " ");
+            slovar.get(l).getEnglish().forEach(x -> System.out.println(x));
         }
-        
-        
-     
-        
     } 
     
     private static class Slovar{
-        String key;
-        ArrayList<String> value = new ArrayList<>();
+        String spain;
+        ArrayList<String> english = new ArrayList<>();
 
-        public Slovar(String key, String value) {
-            this.key = key;
-            this.value.add(value);
+        public Slovar(String spain, String english) {
+            this.spain = spain;
+            this.english.add(english);
         }
-        public void addValue(String value) {
-            this.value.add(value);
-        }
-
-        public String getKey() {
-            return key;
+        public void addEnglish(String value) {
+            this.english.add(value);
         }
 
-        public ArrayList<String> getValue() {
-            return value;
+        public String getSpain() {
+            return spain;
         }
-        
+
+        public ArrayList<String> getEnglish() {
+            return english;
+        }        
         
     }
 }
