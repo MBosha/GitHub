@@ -5,6 +5,7 @@ import Classes.FactorialStream;
 import Classes.Matrix;
 import Classes.Student;
 import java.util.ArrayList;
+import Classes.Slovar;
 import testforstepic.TestForStepic;
 import static java.util.Collections.reverseOrder;
 import static java.util.Comparator.comparing;
@@ -19,6 +20,7 @@ public class Main {
         //FactorialStream.nnn();
         //FactorialStream.squirrelsNuts2();
         //FactorialStream.polindrom();
-        FactorialStream.spanish();
+        Slovar.spanish();
+        
     }
 }
