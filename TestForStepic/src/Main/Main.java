@@ -17,6 +17,8 @@ public class Main {
         //System.out.println(FactorialStream.calcDoubleFactorial(7));
         //FactorialStream.suM();
         //FactorialStream.nnn();
-        FactorialStream.squirrelsNuts2();
+        //FactorialStream.squirrelsNuts2();
+        //FactorialStream.polindrom();
+        FactorialStream.spanish();
     }
 }

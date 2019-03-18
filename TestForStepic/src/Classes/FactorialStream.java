@@ -4,10 +4,13 @@ package Classes;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.*;
 import java.util.Scanner;
 import java.util.function.IntBinaryOperator;
+import javax.lang.model.element.Element;
 
 
 public class FactorialStream {
@@ -139,8 +142,101 @@ public static BigInteger calcDoubleFactorial(int n) {
         System.out.println(num[1] - num[1]/num[0]*num[0]);
         
     }
-      
-  }
+    
+    public static void polindrom() {
+        Scanner scanner = new Scanner(System.in);
+        StringBuffer str1 = new StringBuffer(scanner.next());
+        StringBuffer str2 = new StringBuffer(str1);
+        str2.reverse();
+        System.out.println(str1);
+        System.out.println(str2);  
+        if (str1.toString().equals(str2.toString())) {
+            System.out.println("yes");
+        } else {
+            System.out.println("no");
+        }
+    }
+    
+    public static void spanish() {
+        
+        List<StringBuffer> engList = new ArrayList<>();
+        List<String> promez = new ArrayList<>();
+        List<Slovar> slovar = new ArrayList<Slovar>();
+        
+        Scanner scanner = new Scanner(System.in);
+        int numEng = scanner.nextInt();      
+        scanner.nextLine();
+        while (scanner.hasNextLine()){
+            StringBuffer input = new StringBuffer(scanner.nextLine());
+            if (input.toString().equals("0")) {break;}
+            engList.add(new StringBuffer(input));
+        }       
+        
+        engList.forEach((x) -> System.out.println(x));
+        
+        for (int i = 0; i < engList.size(); i++){
+            StringBuffer str = engList.get(i);
+            StringBuffer str1 = new StringBuffer("");
+            for (int j = 0; j < str.length(); j++){
+                if (Character.isLetter(str.charAt(j))) {
+                    str1.append(str.charAt(j));                    
+                } else {
+                    if (str1.length() > 1 || j == str.length() - 1) {
+                        String nstr = str1.toString();
+                        promez.add(nstr);
+                        System.out.println(str1);
+                        str1.setLength(0);
+                    };                    
+                }
+                if (str1.length() > 1 && j == str.length() - 1) {
+                    String nstr = str1.toString();
+                    promez.add(nstr);
+                    System.out.println(str1);
+                    str1.setLength(0);
+                }               
+            }
+            System.out.println();
+            System.out.println(1 + " promez");
+            promez.forEach((x) -> System.out.println(x));
+            
+            for (int k = 1; k < promez.size(); k++){
+                slovar.add(new Slovar (promez.get(0), promez.get(k)));               
+            }            
+            promez.clear();
+            System.out.println();
+            System.out.println("map");
+            System.out.println(slovar.get(i).getKey());
+            slovar.get(i).getValue().forEach(x -> System.out.println(x));
+        }
+        
+        
+     
+        
+    } 
+    
+    private static class Slovar{
+        String key;
+        ArrayList<String> value = new ArrayList<>();
+
+        public Slovar(String key, String value) {
+            this.key = key;
+            this.value.add(value);
+        }
+        public void addValue(String value) {
+            this.value.add(value);
+        }
+
+        public String getKey() {
+            return key;
+        }
+
+        public ArrayList<String> getValue() {
+            return value;
+        }
+        
+        
+    }
+}
 /*
 
 */
