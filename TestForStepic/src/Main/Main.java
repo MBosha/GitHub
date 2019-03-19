@@ -3,6 +3,7 @@ package Main;
 
 import Classes.FactorialStream;
 import Classes.Matrix;
+import Classes.MatrixII;
 import Classes.Student;
 import java.util.ArrayList;
 import Classes.Slovar;
@@ -20,7 +21,8 @@ public class Main {
         //FactorialStream.nnn();
         //FactorialStream.squirrelsNuts2();
         //FactorialStream.polindrom();
-        Slovar.spanish();
+        //Slovar.spanish();
+        MatrixII.matrixII();
         
     }
 }
