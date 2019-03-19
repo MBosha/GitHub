@@ -6,10 +6,11 @@ import java.util.*;
 
 
 public class MatrixII {
+
     public static void matrixII() {
                 
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Stroka> massiv = new ArrayList<Stroka>();        
+        List<Stroka> massiv = new ArrayList<Stroka>();        
         int num = 0;
         int posX = 0;
         int posY = 0;
@@ -17,43 +18,49 @@ public class MatrixII {
         int y = scanner.nextInt();
         int[][] matrix = new int[x][y];
         boolean weiter = true;
-        do {
-            if (scanner.hasNextLine()){
-                Scanner lineScan = new Scanner(scanner.nextLine());
-                Stroka strMas = new Stroka();
-                while(lineScan.hasNextInt()) {
-                    strMas.addInt(lineScan.nextInt()); 
-                    System.out.println(num++);
-                    }
+        while(scanner.hasNextLine()) {
+            Stroka strMas = new Stroka();
+            Scanner lineScan = new Scanner(scanner.nextLine()); 
+            if (scanner.hasNext()){                               
+                while(lineScan.hasNext()) {
+                    String sym = 
+                    int numS = lineScan.nextInt();
+                    strMas.addInt(numS); 
+                    System.out.println(numS);
                 }
-                massiv.add(strMas);
-                if (!scanner.hasNextLine()){
-                    weiter = false;
-                }
-                
             }
-        } while (weiter);
+            massiv.add(strMas);
+            if (lineScan.hasNext()){
+                if (lineScan.next().equals("n")){
+                    System.out.println("n");
+                    break;
+                }
+            }
+        }
+            System.out.println("*!*");
+              
+        for (int i = 0; i < massiv.size(); i++){
+            for (int j = 0; j < massiv.get(0).stroka.size(); j++){
+                System.out.println(massiv.get(i).stroka.get(j) + " ");                
+                }
+            }
         
-//        for (int i = 0; i < x; i++){
-//            for (int j = 0; j < y; j++){
-//                if (scanner.hasNextInt()){
-//                    matrix[i][j] = scanner.nextInt();
-//                }
-//            }
-//            if (scanner.hasNextLine()){
-//                scanner.nextLine();
-//            }
-//        }
-        System.out.println(matrix[0].length);
-        System.out.println(matrix.length);
-        for (int i = 0; i < matrix[0].length; i++){
-            for (int j = 0; j < matrix.length; j++){
+//        3 2
+//        1 2 3
+//        4 5 6
+//        7 8 9 n
+
+
+        System.out.println(massiv.size());
+        System.out.println(massiv.get(0).stroka.size());
+        for (int i = 0; i < massiv.size(); i++){
+            for (int j = 0; j < massiv.get(0).stroka.size(); j++){
                 System.out.printf("%2d",matrix[i][j]);
             }
             System.out.println();
             
         }
-        System.out.println(matrixSum(matrix, x, y));
+        //System.out.println(matrixSum(matrix, x, y));
     }    
     public static int matrixSum(int[][] matrix, int x, int y) {
         boolean enter = true;
@@ -89,7 +96,7 @@ public class MatrixII {
     private static class Stroka {
         List<Integer> stroka;
         public Stroka() {
-            //super();
+            super();
             this.stroka = new ArrayList<Integer>();
         }
 

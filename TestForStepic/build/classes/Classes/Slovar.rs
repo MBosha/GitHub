@@ -1,0 +1,2 @@
+Classes.Value
+Classes.Slovar
