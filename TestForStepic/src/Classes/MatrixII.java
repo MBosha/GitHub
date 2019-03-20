@@ -17,33 +17,35 @@ public class MatrixII {
         int x = scanner.nextInt();
         int y = scanner.nextInt();
         int[][] matrix = new int[x][y];
-        boolean weiter = true;
-        while(scanner.hasNextLine()) {
-            Stroka strMas = new Stroka();
-            Scanner lineScan = new Scanner(scanner.nextLine()); 
-            if (scanner.hasNext()){                               
-                while(lineScan.hasNext()) {
-                    String sym = 
-                    int numS = lineScan.nextInt();
-                    strMas.addInt(numS); 
-                    System.out.println(numS);
-                }
-            }
-            massiv.add(strMas);
-            if (lineScan.hasNext()){
-                if (lineScan.next().equals("n")){
-                    System.out.println("n");
-                    break;
-                }
-            }
+        Stroka strMas = new Stroka();
+        String str = scanner.nextLine();
+        for (String retval : str.split(" ")) {
+            System.out.println(retval);
         }
-            System.out.println("*!*");
-              
-        for (int i = 0; i < massiv.size(); i++){
-            for (int j = 0; j < massiv.get(0).stroka.size(); j++){
-                System.out.println(massiv.get(i).stroka.get(j) + " ");                
-                }
-            }
+
+//            if (scanner.hasNext()){                               
+//                while(lineScan.hasNext()) {
+//                    String sym = 
+//                    int numS = lineScan.nextInt();
+//                    strMas.addInt(numS); 
+//                    System.out.println(numS);
+//                }
+//            }
+//            massiv.add(strMas);
+//            if (lineScan.hasNext()){
+//                if (lineScan.next().equals("n")){
+//                    System.out.println("n");
+//                    break;
+//                }
+//            }
+//        }
+//            System.out.println("*!*");
+//              
+//        for (int i = 0; i < massiv.size(); i++){
+//            for (int j = 0; j < massiv.get(0).stroka.size(); j++){
+//                System.out.println(massiv.get(i).stroka.get(j) + " ");                
+//                }
+//            }
         
 //        3 2
 //        1 2 3
