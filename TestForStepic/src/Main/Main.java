@@ -1,12 +1,8 @@
 
 package Main;
 
-import Classes.FactorialStream;
-import Classes.Matrix;
-import Classes.MatrixII;
-import Classes.Student;
+import Classes.*;
 import java.util.ArrayList;
-import Classes.Slovar;
 import testforstepic.TestForStepic;
 import static java.util.Collections.reverseOrder;
 import static java.util.Comparator.comparing;
@@ -22,7 +18,8 @@ public class Main {
         //FactorialStream.squirrelsNuts2();
         //FactorialStream.polindrom();
         //Slovar.spanish();
-        MatrixII.matrixII();
+        //MatrixII.matrixII();  
+        RotateMatrix.matrixRotate();
         
     }
 }

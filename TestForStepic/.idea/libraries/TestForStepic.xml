@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TestForStepic">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/TestForStepic.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
