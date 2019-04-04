@@ -19,7 +19,8 @@ public class Main {
         //FactorialStream.polindrom();
         //Slovar.spanish();
         //MatrixII.matrixII();  
-        RotateMatrix.matrixRotate();
+        //RotateMatrix.matrixRotate();
+        PairwiseDifferentSummands.pairwiseDifferentSummands();        
         
     }
 }
