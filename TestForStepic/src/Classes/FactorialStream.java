@@ -1,7 +1,10 @@
 
 package Classes;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,7 +29,9 @@ public class FactorialStream {
     
 public static long factorial(long n) {
     // write your code here
-    return LongStream.rangeClosed(2, n).reduce(1, (x, y) -> x * y);
+    BigDecimal bd = new BigDecimal(10);
+    bd.setScale(5, RoundingMode.HALF_UP);
+    return LongStream.rangeClosed(2, n).reduce(1, (x, y) -> x * y);       
     
 }
 
